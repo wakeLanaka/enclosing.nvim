@@ -1,4 +1,8 @@
 ============================================================================
                                                               *enclosing.nvim*
 
+                                                           *close_enclosing()*
+close_enclosing()
+  Closes all the open enclosings (e.q. [, {, ( and ") on the current line.
+
 vim:tw=78:ts=8:ft=help:norl:
