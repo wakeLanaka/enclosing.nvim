@@ -1,0 +1,15 @@
+============================================================================
+                                                                 *plugin.nvim*
+
+                                                                     *example*
+example()
+  This is some |reference| done with || and text inside. It is important to
+  call :helptags
+>
+  This here is an example with inside those >example<
+<
+                                                                   *reference*
+reference
+  with :right text, like reference, is aligned on the right side.
+
+vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,5 @@
+describe("A test", function ()
+  it("asserts truesy values", function ()
+    assert.are.same(1, 1)
+  end)
+end)
