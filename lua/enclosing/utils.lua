@@ -33,7 +33,7 @@ M.enclosing_mapping = function(character)
   end
 end
 
-M.create_used_enclosing_array = function(current_line)
+M.get_used_enclosings = function(current_line)
   local entries = {}
   for i = 1, #current_line do
     local character = current_line:sub(i,i)
@@ -52,10 +52,11 @@ M.create_used_enclosing_array = function(current_line)
 end
 
 M.append_enclosings = function(line, entries)
+  local cursor_col = vim.api.nvim_win_get_cursor(0)[2]
   local new_line = line
-  for i = #entries, 1, -1 do
+  for i = 1, #entries do
     local enclosing = entries[i]
-    new_line = new_line .. tostring(M.enclosing_mapping(enclosing))
+    new_line = new_line:sub(1, cursor_col) .. tostring(M.enclosing_mapping(enclosing)) .. new_line:sub(cursor_col + 1)
   end
   return new_line
 end

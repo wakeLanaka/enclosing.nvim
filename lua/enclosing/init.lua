@@ -6,7 +6,7 @@ M.close_enclosing = function ()
 
   local current_line = vim.api.nvim_get_current_line()
 
-  local entries = utils.create_used_enclosing_array(current_line)
+  local entries = utils.get_used_enclosings(current_line)
 
   local new_line = utils.append_enclosings(current_line, entries)
 
