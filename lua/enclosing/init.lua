@@ -8,7 +8,8 @@ M.close_enclosing = function ()
 
   local entries = utils.get_used_enclosings(current_line)
 
-  local new_line = utils.append_enclosings(current_line, entries)
+  local cursor_col = vim.api.nvim_win_get_cursor(0)[2]
+  local new_line = utils.append_enclosings(current_line, entries, cursor_col)
 
   vim.api.nvim_set_current_line(new_line)
 
