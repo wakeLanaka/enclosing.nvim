@@ -27,6 +27,10 @@ describe("enclosing_mapping", function ()
   it("should return \" on \"", function ()
     assert.are.same("\"", utils.enclosing_mapping("\""))
   end)
+  it("should return > on < and vice versa", function ()
+    assert.are.same(">", utils.enclosing_mapping("<"))
+    assert.are.same("<", utils.enclosing_mapping(">"))
+  end)
 end)
 
 describe("append_enclosings", function ()
@@ -43,6 +47,13 @@ describe("append_enclosings", function ()
     local new_line = utils.append_enclosings(line, entries, 2)
 
     assert.are.same(line .. "\")", new_line)
+  end)
+  it("should append >)", function ()
+    local entries = {{"(", 1}, {"<", 2}}
+    local line = "  "
+    local new_line = utils.append_enclosings(line, entries, 2)
+
+    assert.are.same(line .. ">)", new_line)
   end)
   it("should only append enclosings before cursor", function ()
     local entries = {{"(", 1}, {"{", 2}}
