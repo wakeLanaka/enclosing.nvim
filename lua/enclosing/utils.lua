@@ -5,7 +5,6 @@ local enclosings = {
   "(",
   "[",
   "\"",
-  "<",
 }
 
 local counter_enclosings = {
@@ -13,7 +12,6 @@ local counter_enclosings = {
   ")",
   "]",
   "\"",
-  ">",
 }
 
 M.contains_value = function(array, value)
